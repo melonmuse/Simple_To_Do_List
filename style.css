@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
 @import url('https://fonts.cdnfonts.com/css/vividly');
 
 :root {
@@ -7,8 +10,6 @@
     --text-color: white;
     --font-main: 'Vividly', serif;
 }
-
-/*Body */
 
 * {
     margin: 0;
@@ -23,26 +24,75 @@ body {
     font-size: medium;
 }
 
-/*Header */
+/* ==========================================================================
+   2. GLOBAL / REUSABLE ELEMENTS
+   ========================================================================== */
+hr {
+    width: 80%;
+    border: none;
+    border-top: 2px solid white;
+    margin: 10px;
+    align-items: center;
+}
+
+/* Generic Form Inputs */
+input[type="text"] {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    padding-bottom: 2px;
+    padding-left: 5px;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+}
+
+input[type="checkbox"]:hover, 
+input[type="button"]:hover, 
+input[type="date"]:hover {
+    opacity: 0.7;
+}
+/* ==========================================================================
+   3. LAYOUT & CONTAINERS
+   ========================================================================== */
 header {
     margin: 10px;
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
-header h1 {
+.banner {
     color: var(--secondary-color);
-    font-size: 100px;
+    font-size: 50px;
     text-align: center;
     margin-top: 10px;
+    white-space: nowrap;
+    margin: 10px 30px;
 }
 
-/*Main */
+.line {
+    flex: 1;
+    height: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px; 
     padding: 20px;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -51,19 +101,11 @@ main {
     width: 100%;
 }
 
-@media (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* ==========================================================================
+   4. COMPONENTS (Cards & Task Items)
+   ========================================================================== */
 
-@media (min-width: 900px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* 4. CLEAN UP THE CARDS */
+/* Cards (Main Divs) */
 main > div {
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -73,14 +115,18 @@ main > div {
     align-items: center;
     justify-content: start;
     min-height: 250px; 
+    transition: transform 0.2s ease;
 }
 
 main > div:hover {
     transform: scale(1.02);
 }
 
-/*Task Container */
-.tasks-container, .priorities-container, .reminder-container, .finished-container {
+/* Task Lists Containers */
+.tasks-container, 
+.priorities-container, 
+.reminder-container, 
+.finished-container {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -91,11 +137,10 @@ main > div:hover {
 }
 
 .finished-container {
-    text-decoration-line: line-through;
-    text-decoration-color: var(--secondary-color);
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
+/* Individual Task Items */
 .task-item {
     display: flex;
     flex-direction: row;
@@ -121,27 +166,6 @@ main > div:hover {
     padding: 10px;
 }
 
-input[type="text"] {
-    appearance: none;
-    border: none;
-    border-bottom: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    padding-bottom: 2px;
-    padding-left: 5px;
-    width: 100%;
-    font-family: var(--font-main);
-    font-size: 20px;
-    color: var(--secondary-color);
-}
-
-input[type="text"]:focus{
-    outline:none;
-}
-
-input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hover{
-    opacity: 0.7;
-}
-
 .task-item-metadata {
     display: flex;
     flex-direction: row;
@@ -165,7 +189,10 @@ input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hov
     width: 100%;
 }
 
-.task-item-metadata input[type="button"], .add-task input[type="button"], .add-reminder input[type="button"]{
+/* Buttons */
+.task-item-metadata input[type="button"], 
+.add-task input[type="button"], 
+.add-reminder input[type="button"] {
     appearance: none;
     background-color: var(--ternary-color);
     border: 1px solid var(--secondary-color);
@@ -173,7 +200,8 @@ input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hov
     padding: 5px;
 }
 
-.add-task input[type="button"], .add-reminder input[type="button"] {
+.add-task input[type="button"], 
+.add-reminder input[type="button"] {
     padding: 15px;
     width: 200px;
     font-family: var(--font-main);
@@ -181,12 +209,6 @@ input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hov
     color: var(--secondary-color);
     text-align: center;
 }
-
-.task-item-metadata input[type="date"]:focus {
-    outline: none;
-}
-
-/*Add Category Box */
 
 .add-category {
     justify-content: center;
@@ -198,66 +220,76 @@ input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hov
     transform: scale(1.02);
 }
 
-/* Container for the checkbox */
+/* ==========================================================================
+   5. CUSTOM CHECKBOXES
+   ========================================================================== */
 .custom-checkbox {
-  display: inline-block;  
-  position: relative;
-  padding-left: 20px;        
-  cursor: pointer;
-  font-size: 18px;
-  user-select: none;
-  height: 15px;             
+    display: inline-block;  
+    position: relative;
+    padding-left: 20px;        
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    height: 15px;             
 }
 
 .custom-checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 .checkmark {
-  position: absolute;
-  bottom: 2px;              
-  left: 0;
-  height: 15px;
-  width: 15px;
-  background-color: var(--ternary-color); 
-  border: 1px solid transparent; /* Hidden default border prevents the layout from "jumping" on hover */
-  border-radius: 3px;            /* Slightly reduced radius to look natural on a 15px box */
-  transition: background 0.2s ease, border-color 0.2s ease;
-  box-sizing: border-box;        /* Keeps the 15px size strict, even with borders */
+    position: absolute;
+    bottom: 2px;              
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: var(--ternary-color); 
+    border: 1px solid transparent; 
+    border-radius: 3px;            
+    transition: background 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;        
 }
 
 .custom-checkbox:hover input:not(:checked) ~ .checkmark {
-  border-color: var(--secondary-color); /* Just change the color, border width is already set above */
+    border-color: var(--secondary-color); 
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-  background-color: var(--ternary-color); 
+    background-color: var(--ternary-color); 
 }
 
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 3.5px;
-  top: 0.15px;
-  width: 4px;
-  height: 8px;
-  border: solid white;        
-  border-width: 0 2px 2px 0;  
-  transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    display: none;
+    left: 3.5px;
+    top: 0.15px;
+    width: 4px;
+    height: 8px;
+    border: solid white;        
+    border-width: 0 2px 2px 0;  
+    transform: rotate(45deg);
 }
 
 .custom-checkbox input:checked ~ .checkmark:after {
-  display: block;
+    display: block;
 }
 
-hr {
-    width: 80%;
-    border: none;
-    border-top: 2px solid var(--primary-color);
-    margin: 10px;
+/* ==========================================================================
+   6. MEDIA QUERIES (Responsive Design)
+   ========================================================================== */
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
