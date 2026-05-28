@@ -1,0 +1,245 @@
+@import url('https://fonts.cdnfonts.com/css/vividly');
+
+:root {
+    --primary-color: #F5D9DF;
+    --secondary-color: #F588A2;
+    --ternary-color: #F5C9D1;
+    --text-color: white;
+    --font-main: 'Vividly', serif;
+}
+
+/*Body */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: medium;
+}
+
+/*Header */
+header {
+    margin: 10px;
+    padding: 10px;
+}
+
+header h1 {
+    color: var(--secondary-color);
+    font-size: 100px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*Main */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px; 
+    padding: 20px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px; 
+    padding: 20px;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4. CLEAN UP THE CARDS */
+main > div {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    min-height: 250px; 
+}
+
+main > div:hover {
+    transform: scale(1.02);
+}
+
+/*Task Container */
+.tasks-container, .priorities-container, .reminder-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    gap: 12px;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+}
+
+.task-item-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: baseline;
+    gap: 8px;
+    flex: 1 1 150px;
+    padding: 10px;
+}
+
+input[type="text"] {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    padding-bottom: 2px;
+    padding-left: 5px;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+input[type="text"]:focus{
+    outline:none;
+}
+
+.task-item input[type="checkbox"]:hover, .task-item input[type="button"]:hover{
+    opacity: 0.8;
+}
+
+.task-item-metadata {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+    flex: 1 1 150px;
+    min-width: 140px;
+}
+
+.task-date {
+    background-color: var(--ternary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    color: var(--secondary-color);
+    font-family: var(--font-main);
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.task-item-metadata input[type="button"] {
+    appearance: none;
+    background-color: var(--ternary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 5px;
+    align-content: center;
+    justify-content: center;
+}
+
+/*Add Category Box */
+
+.add-category {
+    justify-content: center;
+    align-items: center;
+}
+
+.add-category:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+
+/* Container for the checkbox */
+.custom-checkbox {
+  display: inline-block;  
+  position: relative;
+  padding-left: 20px;        
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  height: 15px;             
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  bottom: 2px;              
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: var(--ternary-color); 
+  border: 1px solid transparent; /* Hidden default border prevents the layout from "jumping" on hover */
+  border-radius: 3px;            /* Slightly reduced radius to look natural on a 15px box */
+  transition: background 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;        /* Keeps the 15px size strict, even with borders */
+}
+
+.custom-checkbox:hover input:not(:checked) ~ .checkmark {
+  border-color: var(--secondary-color); /* Just change the color, border width is already set above */
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--ternary-color); 
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 3.5px;
+  top: 0.15px;
+  width: 4px;
+  height: 8px;
+  border: solid white;        
+  border-width: 0 2px 2px 0;  
+  transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+hr {
+    width: 80%;
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    margin: 10px;
+}

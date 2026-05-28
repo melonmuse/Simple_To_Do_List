@@ -1,0 +1,225 @@
+@import url('https://fonts.cdnfonts.com/css/vividly');
+        
+:root {
+    --background: #F5D9DF;
+    --div-background: #F588A2;
+    --paragraph-color: #F5C9D1;
+    --main-font: 'Vividly', serif;
+}
+
+body {
+    background-color: var(--background);
+    margin: 40px 100px; /* Big desktop margins */
+    transition: margin 0.2s ease;
+}
+
+header {
+    margin: 50px 0;
+}
+
+header h1 {
+    text-align: center;
+    color: var(--div-background);
+    font-family: var(--main-font);
+    font-size: 100px;
+    margin: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+main > div {
+    background-color: var(--div-background);
+    color: var(--paragraph-color);
+    font-family: var(--main-font);
+    text-align: center;
+    border: 1px solid var(--div-background);
+    border-radius: 20px;
+    padding: 40px 20px;
+    box-sizing: border-box; 
+    
+    /* Ensures internal elements stretch and flex appropriately */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 50px;
+    margin: 0 0 10px 0;
+}
+
+.tasks-container, .finished-container {
+    text-align: left;
+    margin: 15px auto;
+    width: 80%; /* Perfectly matches the width of your hr lines */
+    font-size: 30px;
+}
+
+#finished-today {
+    box-sizing: border-box;
+}
+
+.task-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap if long words push elements off-row */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.task-left-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 140px;
+}
+
+/* FIXED: Changed from grid to flex to center elements cleanly and stop alignment shifting */
+.information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Provides clean, consistent spacing between checkbox and date */
+}
+
+.task-item label {
+    color: white;
+    text-align: left;
+    font-size: 30px;
+    word-break: break-word;
+}
+
+.task-form {
+    margin-top: auto; /* Always keeps the add button anchored at the bottom */
+    width: 100%;
+}
+
+/* Base style rules for buttons */
+.task-form input[type="button"], 
+.task-item input[type="button"] {
+    font-family: var(--main-font);
+    background-color: var(--background);
+    color: var(--div-background);
+    border: none;
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.1s ease;
+}
+
+.task-item input[type="date"] {
+    font-family: var(--main-font); /* KEPT: Retained custom font per your request */
+    background-color: var(--background);
+    color: var(--div-background);
+    border: none;
+    padding: 4px 8px;
+    font-size: 16px; 
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* 1. Style the default, unchecked state */
+.task-item input[type="checkbox"] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px; 
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    flex-shrink: 0; 
+    box-sizing: border-box;
+}
+
+/* 2. Style the checked state */
+.task-item input[type="checkbox"]:checked {
+    background-color: var(--paragraph-color); 
+    border-color: var(--div-background);
+}
+
+/* 3. Add a custom checkmark (using a CSS pseudo-element) */
+.task-item input[type="checkbox"]:checked::before {
+    content: "";
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid white;  
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg);
+    margin-bottom: 2px; 
+    box-sizing: border-box;
+}
+
+/* Hover styling rules */
+.task-form input[type="button"]:hover,
+.task-item input[type="button"]:hover {
+    opacity: 0.8;
+}
+
+#add-box {
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-box:hover {
+    transform: scale(1.03);
+    opacity: 0.8; 
+}
+
+hr {
+    width: 80%;
+    border: none;
+    border-top: 2px solid var(--paragraph-color);
+}
+
+.reminders-list {
+    text-align: left;
+    margin: 15px auto;
+    width: 80%;
+    font-size: 30px;
+    padding-left: 30px;
+    color: white;
+}
+
+.reminders-list li {
+    margin-bottom: 12px;
+    list-style-type: disc;
+}
+
+/* Media Query to prevent content squeezing on mobile screens */
+@media (max-width: 768px) {
+    body {
+        margin: 20px 15px; 
+    }
+    header h1 {
+        font-size: 70px; 
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+}

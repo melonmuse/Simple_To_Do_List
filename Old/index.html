@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List App</title>
+</head>
+<body>
+    <header>
+        <h1>Life Tasks</h1>
+    </header>
+    <main id="grid-container">
+        <div id="finished-today">
+            <h2>Finished Today</h2>
+            <hr>
+            <div class="finished-container"></div>
+        </div>
+        <div id="top-priorities-box">
+            <h2>Top 3 Priorities</h2>
+            <hr>
+            <div class="tasks-container"></div>
+        </div>
+        <div id="reminders-box">
+            <h2>Reminders</h2>
+            <hr>
+            <ul class="reminders-list"></ul>
+            <hr>
+            <div class="task-form"><input type="button" class="add-reminder-btn" value="Add Reminder"></div>
+        </div>
+        <div id="sample-category">
+            <h2>Sample Category</h2>
+            <hr>
+            <div class="tasks-container"></div>
+            <hr>
+            <div class="task-form"><input type="button" class="add-task-btn" value="Add Task"></div>
+        </div>
+        <div id="add-box">
+            <h2>Add New Category</h2>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

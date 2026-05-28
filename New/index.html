@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>To-Do List App</title>
+    </head>
+    <body>
+        <header>
+            <h1>Life Tasks</h1>
+            <hr>
+        </header>
+        <main class="grid-container">
+            <div class="finished">
+                <h2>Finished Today</h2>
+                <hr>
+                <div class="finished-container">
+                    <div class="task-item">
+                        <div class="task-item-content">
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="priorities">
+                <h2>Top Priorities</h2>
+                <hr>
+                <div class="priorities-container">
+                    <div class="task-item">
+                        <div class="task-item-content">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="priority-item-completed">
+                                <span class="checkmark"></span>
+                            </label>
+                            <input type="text">
+                        </div>
+                        <div class="task-item-metadata">
+                            <input type="date" class="task-date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reminders">
+                <h2>Reminders</h2>
+                <hr>
+                <div class="reminder-container">
+                    <div class="task-item">
+                        <div class="task-item-content">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="priority-item-completed">
+                                <span class="checkmark"></span>
+                            </label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="category-tasks">
+                <h2>Main Tasks</h2>
+                <hr>
+                <div class="tasks-container">
+                    <div class="task-item">
+                        <div class="task-item-content">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" class="priority-item-completed">
+                                <span class="checkmark"></span>
+                            </label>
+                            <input type="text">
+                        </div>
+                        <div class="task-item-metadata">
+                            <input type="date" class="task-date">
+                            <input type="button" class="priority-button" value="🔥">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-category">
+                <h2>Add New Category</h2>
+            </div>
+        </main>
+    </body>
+</html>
