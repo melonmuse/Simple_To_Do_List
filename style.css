@@ -80,7 +80,7 @@ main > div:hover {
 }
 
 /*Task Container */
-.tasks-container, .priorities-container, .reminder-container {
+.tasks-container, .priorities-container, .reminder-container, .finished-container {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -88,6 +88,12 @@ main > div:hover {
     gap: 10px;
     padding: 10px 0;
     box-sizing: border-box;
+}
+
+.finished-container {
+    text-decoration-line: line-through;
+    text-decoration-color: var(--secondary-color);
+    opacity: 0.5;
 }
 
 .task-item {
@@ -132,7 +138,7 @@ input[type="text"]:focus{
     outline:none;
 }
 
-.task-item input[type="checkbox"]:hover, .task-item input[type="button"]:hover, .task-item-metadata input[type="date"]:hover{
+input[type="checkbox"]:hover, input[type="button"]:hover, input[type="date"]:hover{
     opacity: 0.7;
 }
 
@@ -159,7 +165,7 @@ input[type="text"]:focus{
     width: 100%;
 }
 
-.task-item-metadata input[type="button"], .add-task input[type="button"]{
+.task-item-metadata input[type="button"], .add-task input[type="button"], .add-reminder input[type="button"]{
     appearance: none;
     background-color: var(--ternary-color);
     border: 1px solid var(--secondary-color);
@@ -167,7 +173,7 @@ input[type="text"]:focus{
     padding: 5px;
 }
 
-.add-task input[type="button"] {
+.add-task input[type="button"], .add-reminder input[type="button"] {
     padding: 15px;
     width: 200px;
     font-family: var(--font-main);
