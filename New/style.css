@@ -84,6 +84,7 @@ main > div:hover {
     width: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     padding: 10px 0;
     box-sizing: border-box;
@@ -131,8 +132,8 @@ input[type="text"]:focus{
     outline:none;
 }
 
-.task-item input[type="checkbox"]:hover, .task-item input[type="button"]:hover{
-    opacity: 0.8;
+.task-item input[type="checkbox"]:hover, .task-item input[type="button"]:hover, .task-item-metadata input[type="date"]:hover{
+    opacity: 0.7;
 }
 
 .task-item-metadata {
@@ -158,14 +159,25 @@ input[type="text"]:focus{
     width: 100%;
 }
 
-.task-item-metadata input[type="button"] {
+.task-item-metadata input[type="button"], .add-task input[type="button"]{
     appearance: none;
     background-color: var(--ternary-color);
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
     padding: 5px;
-    align-content: center;
-    justify-content: center;
+}
+
+.add-task input[type="button"] {
+    padding: 15px;
+    width: 200px;
+    font-family: var(--font-main);
+    font-size: 20px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.task-item-metadata input[type="date"]:focus {
+    outline: none;
 }
 
 /*Add Category Box */
