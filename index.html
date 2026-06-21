@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
         <title>To-Do List App</title>
     </head>
     <body>
@@ -35,7 +36,7 @@
                                 <input type="checkbox" class="task-item-completed">
                                 <span class="checkmark"></span>
                             </label>
-                            <input type="text">
+                            <input type="text" class="task-input">
                         </div>
                     </div>
                     <div class="add-reminder">
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="category-tasks">
-                <h2>Main Tasks</h2>
+                <input type="text" class="category-title">
                 <hr>
                 <div class="tasks-container">
                     <div class="task-item">
@@ -53,7 +54,7 @@
                                 <input type="checkbox" class="task-item-completed">
                                 <span class="checkmark"></span>
                             </label>
-                            <input type="text">
+                            <input type="text" class="task-input">
                         </div>
                         <div class="task-item-metadata">
                             <input type="date" class="task-date">
@@ -61,11 +62,11 @@
                         </div>
                     </div>
                     <div class="add-task">
-                        <input type="button" value="Add Task" id="add-task-btn">
+                        <input type="button" value="Add Task">
                     </div>
                 </div>
             </div>
-            <div class="add-category">
+            <div onclick="add_category_button()" class="add-category">
                 <h2>Add New Category</h2>
             </div>
         </main>

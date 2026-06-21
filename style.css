@@ -36,18 +36,6 @@ hr {
 }
 
 /* Generic Form Inputs */
-input[type="text"] {
-    appearance: none;
-    border: none;
-    border-bottom: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    padding-bottom: 2px;
-    padding-left: 5px;
-    width: 100%;
-    font-family: var(--font-main);
-    font-size: 20px;
-    color: var(--secondary-color);
-}
 
 input[type="text"]:focus,
 input[type="date"]:focus {
@@ -134,10 +122,26 @@ main > div:hover {
     gap: 10px;
     padding: 10px 0;
     box-sizing: border-box;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
-.finished-container {
-    opacity: 0.7;
+/* Category Title */
+input.category-title {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input.category-title:focus {
+    border: 1px solid white;
 }
 
 /* Individual Task Items */
@@ -159,11 +163,24 @@ main > div:hover {
 .task-item-content {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: baseline;
     gap: 8px;
     flex: 1 1 150px;
     padding: 10px;
+}
+
+input.task-input {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    padding-bottom: 2px;
+    padding-left: 5px;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 20px;
+    color: var(--secondary-color);
 }
 
 .task-item-metadata {
