@@ -14,59 +14,23 @@
             <span class="line"></span>
         </header>
         <main class="grid-container">
-            <div class="finished">
-                <h2>Finished Today</h2>
-                <hr>
-                <div class="finished-container">
-                </div>
-            </div>
             <div class="priorities">
                 <h2>Top Priorities</h2>
                 <hr>
-                <div class="priorities-container">
-                </div>
+                <div class="priorities-container"></div>
             </div>
+
             <div class="reminders">
                 <h2>Reminders</h2>
                 <hr>
                 <div class="reminder-container">
-                    <div class="task-item">
-                        <div class="task-item-content">
-                            <label class="custom-checkbox">
-                                <input type="checkbox" class="task-item-completed">
-                                <span class="checkmark"></span>
-                            </label>
-                            <input type="text" class="task-input">
-                        </div>
-                    </div>
                     <div onclick="addReminder(event)" class="add-reminder">
                         <input type="button" value="Add Reminder">
                     </div>
                 </div>
             </div>
-            <div class="category-tasks">
-                <input type="text" class="category-title">
-                <hr>
-                <div class="tasks-container">
-                    <div class="task-item">
-                        <div class="task-item-content">
-                            <label class="custom-checkbox">
-                                <input onclick="markFinished(event)" type="checkbox" class="task-item-completed">
-                                <span class="checkmark"></span>
-                            </label>
-                            <input type="text" class="task-input">
-                        </div>
-                        <div class="task-item-metadata">
-                            <input type="date" class="task-date">
-                            <input onclick="setPriority(event)" type="button" class="priority-button" value="🔥">
-                        </div>
-                    </div>
-                    <div onclick="addTask(event)" class="add-task">
-                        <input type="button" value="Add Task">
-                    </div>
-                </div>
-            </div>
-            <div onclick="addCategory()" class="add-category">
+            
+            <div onclick="addCategory(event)" class="add-category">
                 <h2>Add New Category</h2>
             </div>
         </main>
